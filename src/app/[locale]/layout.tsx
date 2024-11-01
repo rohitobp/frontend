@@ -9,7 +9,7 @@ export default function LocaleLayout({
     params: {locale:string};
 }){
     return (
-        <html lang="{locale}">
+        <html lang={locale}>
             <body>
                 <Navbar/>
                 {children}
