@@ -1,19 +1,20 @@
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
     children,
-    params: {locale}
-}:{
+    params
+}: {
     children: React.ReactNode;
-    params: {locale:string};
-}){
+    params: { locale: string };
+}) {
+    const { locale } = await params;
     return (
         <html lang={locale}>
             <body>
-                <Navbar/>
+                <Navbar />
                 {children}
-                <Footer/>
+                <Footer />
             </body>
         </html>
     )

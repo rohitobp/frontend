@@ -7,7 +7,7 @@ import Flag_ca from '../images/ca.png';
 
 export default function Navbar(){
     return(
-        <header className="bg-slate-200 fixed z-30 w-full">
+        <header className="bg-slate-200 sticky z-30 w-full">
             <nav className="flex justify-end gap-4 p-5">
                 <Link href="/en">
                     <Image src={Flag_en} alt="en" width={25} height={25}></Image>

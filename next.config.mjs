@@ -1,9 +1,10 @@
-import createNextIntlPlugin from "next-intl/plugin";
+import createNextIntlPlugin from 'next-intl/plugin';
 
-const withNExtIntl = createNextIntlPlugin();
+// Especifica la ruta de tu archivo `i18n/request.ts`
+const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 const nextConfig = {
-  /* config options here */
+  /* Aquí van otras opciones de configuración de Next.js */
 };
 
-export default withNExtIntl(nextConfig);
+export default withNextIntl(nextConfig);
