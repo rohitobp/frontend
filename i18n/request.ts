@@ -8,7 +8,7 @@ export default getRequestConfig(async (context) => {
     // Replace 'locale' with 'await context.requestLocale'
     const locale = await context.requestLocale;
 
-    if (!locales.includes(locale)) {
+    if (locale && !locales.includes(locale)) {
         notFound();
     }
 

@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import "../globals.css";
+
 export default async function LocaleLayout({
     children,   
     params
@@ -12,9 +12,8 @@ export default async function LocaleLayout({
     return (
         <html lang={locale}>
             <body>
-                <Navbar locale={locale} />
+                {/* <Navbar locale={locale} /> */}
                 {children}
-                <Footer />                
             </body>
         </html>
     )
