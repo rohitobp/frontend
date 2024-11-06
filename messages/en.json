@@ -2,5 +2,14 @@
     "Index":{
         "title": "Hello world",
         "footer": "Hello footer"
+    },
+    "Navbar":{
+        "Language": "Language",
+        "ES": "Español",
+        "EN": "English",
+        "CA": "Català"
+    },
+    "Theme":{
+        "Tema": "Theme"
     }
 }

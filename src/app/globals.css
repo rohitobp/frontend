@@ -16,11 +16,15 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: var(--color-background);
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
 }
 
 .selected_language{
   border: 1px solid white;
+}
+.selected_li {
+  /* background-color: var(--color-seconday);  */
+  background-color: red;
 }

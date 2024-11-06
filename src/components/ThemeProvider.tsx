@@ -1,20 +1,20 @@
 "use client";
 import React, { createContext, useContext, useState } from 'react';
-import { palette1, palette2, ColorPalette } from '../theme/colors';
+import { DarkPalette, LightPalette, ColorPalette } from '../theme/colors';
 import ThemeChanger from './ThemeChanger';
 
 interface ThemeContextType {
   palette: ColorPalette;
-  switchPalette: (paletteName: 'palette1' | 'palette2') => void;
+  switchPalette: (paletteName: 'DarkPalette' | 'LightPalette') => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [palette, setPalette] = useState<ColorPalette>(palette1);
+  const [palette, setPalette] = useState<ColorPalette>(DarkPalette);
 
-  const switchPalette = (paletteName: 'palette1' | 'palette2') => {
-    setPalette(paletteName === 'palette1' ? palette1 : palette2);
+  const switchPalette = (paletteName: 'DarkPalette' | 'LightPalette') => {
+    setPalette(paletteName === 'DarkPalette' ? DarkPalette : LightPalette);
   };
 
   return (

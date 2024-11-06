@@ -7,18 +7,20 @@ export interface ColorPalette {
     [key: string]: string;
 }
 
-export const palette1: ColorPalette = {
-    primary: '#1E90FF',
-    secondary: '#FF6347',
-    accent: '#32CD32',
-    background: '#FFFFFF',
-    text: '#000000',
+export const DarkPalette: ColorPalette = {
+    primary: '#FFD700', // Bright yellow for contrast and highlight
+    secondary: '#FFFFFF', // White for key contrasting elements
+    accent: '#C5C500', // Darker muted yellow for accents
+    background: '#000000', // Black for the background
+    text: '#FFD700', // Yellow text for readability on dark background
+    id: "DarkPalette",
 };
 
-export const palette2: ColorPalette = {
-    primary: '#8A2BE2',
-    secondary: '#FF4500',
-    accent: '#7FFF00',
-    background: '#F0F8FF',
-    text: '#2F4F4F',
+export const LightPalette: ColorPalette = {
+    primary: '#FFD700', // Bright yellow for primary elements
+    secondary: '#000000', // Black for a strong contrast
+    accent: '#FFF8DC', // Lighter yellow for accents (Cornsilk)
+    background: '#FFFFFF', // White for the background
+    text: '#000000', // Black text for high contrast
+    id: "LightPalette",
 };
