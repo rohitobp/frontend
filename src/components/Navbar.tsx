@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import Flag_es from '../images/es.png';
@@ -8,7 +9,7 @@ import { ThemeProvider } from "./ThemeProvider";
 import { IoLanguage } from "react-icons/io5";
 import { useTranslations } from "next-intl";
 import { MdKeyboardArrowDown } from "react-icons/md";
-
+import { useEffect, useState } from "react";
 
 interface NavbarProps {
     locale: string;
@@ -29,6 +30,27 @@ const languages: Language[] = [
 // https://daisyui.com/
 export default function Navbar({ locale }: NavbarProps) {
     const t = useTranslations("Navbar");
+    const [currentPath, setCurrentPath] = useState('');
+
+    // Capture the current path on the client side
+    useEffect(() => {
+        setCurrentPath(window.location.pathname);
+    }, []);
+
+    // Function to get the new path with the selected locale
+    const getLocalizedPath = (code: string) => {
+        // Extract the current locale from the path
+        const pathSegments = currentPath.split('/');
+        if (languages.some(lang => lang.code === pathSegments[1])) {
+            // Replace the first segment if it's a locale code
+            pathSegments[1] = code;
+        } else {
+            // Add the locale as the first segment if none exists
+            pathSegments.unshift(code);
+        }
+        return pathSegments.join('/');
+    };
+
     return (
         <header className="border-b-2 border-solid border-white sticky top-0 z-30 w-full shadow-md">
             <nav className="flex justify-between items-center gap-4 p-5">
@@ -49,7 +71,10 @@ export default function Navbar({ locale }: NavbarProps) {
                         <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                             {languages.map(({ code, name, flag }) => (
                                 <li key={code}>
-                                    <Link href={`/${code}`} locale={code}>
+                                    <Link
+                                        href={getLocalizedPath(code)}
+                                        className="flex items-center space-x-2"
+                                    >
                                         <Image
                                             src={flag}
                                             alt={code}
@@ -64,7 +89,7 @@ export default function Navbar({ locale }: NavbarProps) {
                         </ul>
                     </div>
                     <div>
-                        <Link href={`/${locale}/login`}>Login</Link>
+                        <Link href={`/login`}>Login</Link>
                     </div>
                 </div>
                 
