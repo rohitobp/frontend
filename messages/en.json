@@ -11,5 +11,16 @@
     },
     "Theme":{
         "Tema": "Theme"
+    },
+    "LoginRegister": {
+        "username": "Username",
+        "password": "Password",
+        "login": {
+            "button": "Login",
+            "loading": "Loading...",
+            "error": "Invalid username or password",
+            "serverError": "Server error. Please try again.",
+            "InvalidCredentials": "Invalid credentials1"
+        }
     }
 }

@@ -11,5 +11,16 @@
     },
     "Theme":{
         "Tema": "Tmea"
+    },
+    "LoginRegister": {
+        "username": "Usuari",
+        "password": "Contrasenya",
+        "login": {
+            "button": "Login",
+            "loading": "Loading...",
+            "error": "Invalid username or password",
+            "serverError": "Server error. Please try again.",
+            "InvalidCredentials": "Invalid credentials1"
+        }
     }
 }
