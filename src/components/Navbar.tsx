@@ -10,6 +10,8 @@ import { IoLanguage } from "react-icons/io5";
 import { useTranslations } from "next-intl";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+
 
 interface NavbarProps {
     locale: string;
@@ -30,17 +32,11 @@ const languages: Language[] = [
 // https://daisyui.com/
 export default function Navbar({ locale }: NavbarProps) {
     const t = useTranslations("Navbar");
-    const [currentPath, setCurrentPath] = useState('');
-
-    // Capture the current path on the client side
-    useEffect(() => {
-        setCurrentPath(window.location.pathname);
-    }, []);
+    const pathname = usePathname(); // Dynamically gets the current path
 
     // Function to get the new path with the selected locale
     const getLocalizedPath = (code: string) => {
-        // Extract the current locale from the path
-        const pathSegments = currentPath.split('/');
+        const pathSegments = pathname.split('/');
         if (languages.some(lang => lang.code === pathSegments[1])) {
             // Replace the first segment if it's a locale code
             pathSegments[1] = code;
