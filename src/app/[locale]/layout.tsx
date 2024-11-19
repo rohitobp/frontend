@@ -14,6 +14,15 @@ async function getMessages(locale: string) {
   }
 }
 
+// Define static params for locales to avoid dynamic issues
+export async function generateStaticParams() {
+  return [
+    { locale: 'en' },
+    { locale: 'es' },
+    { locale: 'ca' },
+  ];
+}
+
 export default async function LocaleLayout({
   children,
   params,
@@ -21,7 +30,10 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const locale = params.locale;
+  // Await the params object if necessary
+  const { locale } = await Promise.resolve(params);
+
+  // Load messages for the current locale
   const messages = await getMessages(locale);
 
   return (
