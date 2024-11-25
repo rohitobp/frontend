@@ -9,8 +9,8 @@ export default function Login() {
     const router = useRouter();
 
     // State for form inputs and error handling
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [correo, setCorreo] = useState("");
+    const [contrasena, setContrasena] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
@@ -23,11 +23,12 @@ export default function Login() {
         setLoading(true);
         setError("");
 
+        console.log(action,correo,contrasena);
         try {
             const res = await fetch("/api/auth", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ action, username, password }),
+                body: JSON.stringify({ action, correo, contrasena }),
             });
 
             if (res.ok) {
@@ -47,19 +48,20 @@ export default function Login() {
         <main className="flex flex-col items-center justify-center min-h-screen">
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-sm">
                 <AnimatedInput
-                    name="username"
-                    id="username"
-                    label={t("username")}
-                    value={username}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}
+                    name="correo"
+                    id="correo"
+                    label={t("correo")}
+                    type="email"
+                    value={correo}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCorreo(e.target.value)}
                 />
                 <AnimatedInput
-                    name="password"
-                    id="password"
+                    name="contrasena"
+                    id="contrasena"
                     type="password"
-                    label={t("password")}
-                    value={password}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+                    label={t("contrasena")}
+                    value={contrasena}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setContrasena(e.target.value)}
                 />
                 {error && <p className="text-red-500 text-sm">{error}</p>}
                 <button type="submit" className="btn btn-neutral w-full" disabled={loading}>

@@ -36,7 +36,7 @@ export default function Register() {
                 router.push("/");
             } else {
                 const { message } = await res.json();
-                setError(("++login.error"));
+                setError(("login.error"));
             }
         } catch (err) {
             setError(("login.serverError"));
