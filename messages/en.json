@@ -7,7 +7,9 @@
         "Language": "Language",
         "ES": "Español",
         "EN": "English",
-        "CA": "Català"
+        "CA": "Català",
+        "login": "Login",
+        "register": "Register"
     },
     "Theme":{
         "Tema": "Theme"
@@ -15,7 +17,13 @@
     "LoginRegister": {
         "username": "Username",
         "password": "Password",
+        "correo": "Email",
+        "Register": "Register",
+        "nombre_usuario" : "Username",
+        "nombre" : "Nombre",
+        "apellidos" : "Apellidos",
         "login": {
+            "login": "Login",
             "button": "Login",
             "loading": "Loading...",
             "error": "Invalid username or password",

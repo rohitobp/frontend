@@ -45,7 +45,11 @@ export default function Login() {
     };
 
     return (
-        <main className="flex flex-col items-center justify-center min-h-screen">
+        <main className="flex flex-col items-center justify-center mt-20">
+
+            <div className="w-full text-center">
+                <h1 className="text-3xl">{t('login.login')}</h1>
+            </div>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-sm">
                 <AnimatedInput
                     name="correo"
@@ -59,13 +63,13 @@ export default function Login() {
                     name="contrasena"
                     id="contrasena"
                     type="password"
-                    label={t("contrasena")}
+                    label={t("password")}
                     value={contrasena}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setContrasena(e.target.value)}
                 />
                 {error && <p className="text-red-500 text-sm">{error}</p>}
                 <button type="submit" className="btn btn-neutral w-full" disabled={loading}>
-                    {loading ? t("login.loading") : t("login.button")}
+                    {loading ? t("login.loading") : t("login.login")}
                 </button>
             </form>
         </main>

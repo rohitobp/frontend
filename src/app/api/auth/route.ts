@@ -6,6 +6,7 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { action, ...data } = body;
 
+    console.log("in POST", action)
     // Handle different actions based on the "action" field
     switch (action) {
       case 'register':
@@ -33,15 +34,16 @@ async function handleRegister({
   correo,
 }: any) {
   try {
-    const response = await fetch('http://localhost:3001/users/register', {
+    console.log("in try catch register")
+    const response = await fetch('http://localhost:3001/user/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ nombre_usuario, contrasena, nombre, apellidos, correo }),
+      body: JSON.stringify({ nombre, apellidos, correo, contrasena, nombre_usuario }),
     });
 
-    console.log("")
+    console.log("response: ",response)
     if (response.ok) {
       const data = await response.json();
       return NextResponse.json(data);
@@ -60,7 +62,7 @@ async function handleLogin({ correo, contrasena }: any) {
 
   console.log("in handle login")
   try {
-    const response = await fetch('http://localhost:3001/users/login', {
+    const response = await fetch('http://localhost:3001/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

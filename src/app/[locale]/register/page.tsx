@@ -46,26 +46,30 @@ export default function Register() {
     };
 
     return (
-        <main className="flex flex-col items-center justify-center min-h-screen">
+        <main className="flex flex-col items-center justify-center mt-20">
+
+            <div className="w-full text-center">
+                <h1 className="text-3xl">{t('Register')}</h1>
+            </div>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-sm">
                 <AnimatedInput
                     name="nombre"
                     id="nombre"
-                    label={("nombre")}
+                    label={t("nombre")}
                     value={nombre}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNombre(e.target.value)}
                 />
                 <AnimatedInput
                     name="apellidos"
                     id="apellidos"
-                    label={("apellidos")}
+                    label={t("apellidos")}
                     value={apellidos}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setApellidos(e.target.value)}
                 />
                 <AnimatedInput
                     name="correo"
                     id="correo"
-                    label={("correo")}
+                    label={t("correo")}
                     value={correo}
                     type="email"
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCorreo(e.target.value)}
@@ -73,21 +77,21 @@ export default function Register() {
                 <AnimatedInput
                     name="nombre_usuario"
                     id="nombre_usuario"
-                    label={("nombre_usuario")}
+                    label={t("nombre_usuario")}
                     value={nombre_usuario}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNombre_usuario(e.target.value)}
                 />
                 <AnimatedInput
                     name="contrasena"
                     id="contrasena"
-                    label={("contrasena")}
+                    label={t("password")}
                     value={contrasena}
                     type="password"
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setContrasena(e.target.value)}
                 />
                 {error && <p className="text-red-500 text-sm">{error}</p>}
                 <button type="submit" className="btn btn-neutral w-full" disabled={loading}>
-                    {loading ? ("login.loading") : ("login.button")}
+                    {loading ? ("login.loading") :  t("login.login")}
                 </button>
             </form>
         </main>

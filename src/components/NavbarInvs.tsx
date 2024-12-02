@@ -30,7 +30,7 @@ const languages: Language[] = [
 ];
 
 // https://daisyui.com/
-export default function Navbar({ locale }: NavbarProps) {
+export default function NavbarInvs({ locale }: NavbarProps) {
     const t = useTranslations("Navbar");
     const pathname = usePathname(); // Dynamically gets the current path
 
